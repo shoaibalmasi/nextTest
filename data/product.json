@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "title": "book1",
+        "price": 1000,
+        "slug": "book-1",
+        "desc": "new book",
+        "cat": "books",
+        "count": 5,
+        "image": "/images/book.png"
+    },
+    {
+        "id": 2,
+        "title": "book2",
+        "price": 2000,
+        "slug": "book-2",
+        "desc": "new book",
+        "cat": "books",
+        "count": 5,
+        "image": "/images/book.png"
+    },
+    {
+        "id": 3,
+        "title": "book3",
+        "price": 3000,
+        "slug": "book-3",
+        "desc": "new book",
+        "cat": "books",
+        "count": 5,
+        "image": "/images/book.png"
+    },
+    {
+        "id": 4,
+        "title": "book4",
+        "price": 4000,
+        "slug": "book-4",
+        "desc": "new book",
+        "cat": "books",
+        "count": 5,
+        "image": "/images/book.png"
+    },
+    {
+        "id": 5,
+        "title": "book5",
+        "price": 5000,
+        "slug": "book-5",
+        "desc": "new book",
+        "cat": "books",
+        "count": 5,
+        "image": "/images/book.png"
+    }
+]
