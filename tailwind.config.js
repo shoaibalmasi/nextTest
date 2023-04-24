@@ -7,6 +7,10 @@ module.exports = {
  
   ],
   theme: {
+      // colors: {
+      //   "panel": "#f8f4f0"
+      // },
+    
     extend: {},
   },
   plugins: [],

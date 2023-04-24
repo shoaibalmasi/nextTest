@@ -81,7 +81,7 @@ function CartPage() {
           {cartItems.reduce((a,b)=> a+ b.price*b.qty,0 )}
         </div>
         <div className="p-5">
-          <button className="rounded-xl bg-gray-700 text-white px-4 py-2" onClick={()=>router.push('/checkout')}>checkout</button>
+          <button className="rounded-xl bg-gray-700 text-white px-4 py-2" onClick={()=>router.push('login?redirect=/checkout')}>checkout</button>
         </div>
         <div>
 

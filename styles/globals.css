@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.panelBg {
+    background-color:#f8f4f0;
+}
+
+.big-child {
+    width: 122%;
+  }

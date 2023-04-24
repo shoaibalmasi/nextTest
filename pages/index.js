@@ -13,11 +13,17 @@ export default function Home() {
   
   useEffect(()=>{
     const fetchOrders = async ()=>{
-      const response = await fetch('http://localhost:8000/products')
-     
-      const responseData = await response.json()
-      
-      setProductItems(responseData)
+      try {
+        
+        const response = await fetch('http://localhost:8000/products')
+        console.log({response});
+       
+        const responseData = await response.json()
+        
+        setProductItems(responseData)
+      } catch (error) {
+        setProductItems([])
+      }
     }
     
     fetchOrders()
