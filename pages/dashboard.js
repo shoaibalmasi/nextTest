@@ -1,29 +1,35 @@
 import Button from "@/components/Button";
 import Categorycard from "@/components/CategoryCard";
 import Image from "next/image";
+
+
 import { FaSearch,  } from 'react-icons/fa';
-import { BsBell, BsThreeDots, BsDot, BsFillClockFill } from 'react-icons/bs'
+import { BsBell, BsThreeDots, BsDot, BsFillClockFill, BsHouseDoorFill, BsFillFileBarGraphFill, BsClipboardCheckFill } from 'react-icons/bs'
 import {FiCalendar} from 'react-icons/fi'
-import { Bar } from 'react-chartjs-2';
+import {GiGraduateCap} from 'react-icons/gi'
+
+
 import Link from "next/link";
-// Import css files
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import SimpleSlider from "@/components/Slider";
+
+import { Bar, CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis, BarChart } from "recharts";
 
 
 function DashboardPage() {
 
-  const data = {
-    labels: ['January', 'February', 'March'],
-    datasets: [
-      {
-        label: 'Sales',
-        data: [100, 75, 120],
-        backgroundColor: '#36A2EB',
-        borderColor: '#36A2EB',
-        borderWidth: 1,
-      },
-    ],
+  const data = [
+    { name: 'task1', Avg: 4000, Point: 2400, amt: 2400 },
+    { name: 'task2', Avg: 3000, Point: 1398, amt: 2210 },
+    { name: 'task3', Avg: 2000, Point: 9800, amt: 2290 },
+    { name: 'task4', Avg: 2780, Point: 3908, amt: 2000 },
+    { name: 'task5', Avg: 1890, Point: 4800, amt: 2181 },
+    { name: 'task6', Avg: 2390, Point: 3800, amt: 2500 },
+    { name: 'task7', Avg: 3490, Point: 4300, amt: 2100 },
+  ];
+
+  const barStyle = {
+    shape: 'roundRect',
+    shapeRadius: [10, 10],
   };
   return (
     <div className="grid grid-cols-12 h-screen">
@@ -57,23 +63,45 @@ function DashboardPage() {
                 <path
                   fill-rule="evenodd"
                   d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
               <span className="font-medium">7.5</span>
             </div>
           </div>
 
-          <div className="flex justify-center h-1/2">
+          <div className="flex justify-center h-1/2 text-gray-400 w-full">
             <ul className="flex justify-start flex-col">
-                <li className="mb-6">Dashboard</li>
-                <li className="mb-6">My Tasks</li>
-                <li className="mb-6">Statistics</li>
-                <li className="mb-6">Courses</li>
+                <li className="mb-6 hover:text-black">
+                  <Link href=''>
+                  <BsHouseDoorFill className="inline mr-3"/> Dashboard
+                  </Link>
+                  </li>
+                <li className="mb-6 hover:text-black">
+                  <Link href=''>
+                  <BsClipboardCheckFill className="inline mr-3"/>My Tasks
+                  </Link>
+                  </li>
+                <li className="mb-6 hover:text-black">
+                  <Link href=''>
+                  <BsFillFileBarGraphFill className="inline mr-3"/>Statistics
+                  </Link>
+                  </li>
+                <li className="mb-6 hover:text-black">
+                  <Link href=''>
+                  <GiGraduateCap className="inline mr-3"/>Courses
+                  </Link>
+                </li>
             </ul>
           </div>
           
           <div className="text-center text-sm font-bold" >
+          <div className="relative flex justify-center items-center w-full">
+            <div className="w-6 h-6 bg-green-500 rounded-full absolute left-12 z-10  border-2 border-white hover:scale-125 hover:z-100"></div>
+            <div className="w-8 h-8 bg-red-400 rounded-full border-2 z-20 border-white hover:scale-125 hover:z-100"></div>
+            <div className="w-7 h-7 bg-yellow-400 rounded-full absolute right-10 z-30 border-2 border-white hover:scale-125 hover:z-100"></div>
+          
+          </div>
             <span>join skilex community to learn together</span>
           </div>
 
@@ -83,9 +111,9 @@ function DashboardPage() {
         <div className="col-span-3 px-6 py-8">
           
             <div className="flex flex-col justify-normal  h-1/2 mb-0">
-              <div className="pb-10 flex justify-start">
+              <div className="pb-10 flex justify-start focus:border-sky-500">
                 <FaSearch  className="text-gray-400 text-2xl pr-2" />
-                <input type="text" placeholder="Search Somthing..." className="panelBg focus:outline-none"/>
+                <input type="text" placeholder="Search Somthing..." className="panelBg focus:outline-none focus:border-sky-500"/>
               </div>
                 <h1 className="text-6xl font-bold">Good morning,<br/>Jeromi</h1>
                 <p className="my-10">here you can track your activity and find <br/> a suitable course to learn a new skill</p>
@@ -104,7 +132,7 @@ function DashboardPage() {
               </div>
 
               <div className="w-full flex justify-around my-5 h-3/4 py-2">
-                <Categorycard color='orange-400' icon='FaCoffee'>Writing</Categorycard>
+                <Categorycard color='orange-400' icon='FaCoffee' >Writing</Categorycard>
                 <Categorycard color='green-400' icon='FaCoffee'>Lifistyle</Categorycard>
                 <Categorycard color='blue-400' icon='FaCoffee'>Food</Categorycard>
                 <Categorycard color='blue-600' icon='FaCoffee'>Music</Categorycard>
@@ -123,9 +151,18 @@ function DashboardPage() {
                     <option value="option3">Option 3</option>
                </select>
               </div>
-              <div className="col-span-4 row-span-6">
-                {/* <Bar data={data} /> */}
-              </div>
+              {/* <div className="col-span-4 row-span-6">
+              
+                <BarChart width={450} height={150} data={data}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  {/* <Legend/> 
+                   <Bar dataKey="Point" fill="#fb923c"  barSize={10} {...barStyle}/>
+                  <Bar dataKey="Avg" fill="#4ade80"  barSize={10} {...barStyle} />
+                </BarChart> 
+              </div> */}
               <div className="col-span-1 row-span-3 flex flex-col items-center">
                 <div className="flex justify-center">
                 <p className="font-bold text-2xl pr-1 items-center">78</p>
@@ -148,22 +185,22 @@ function DashboardPage() {
       <div className="bg-white col-span-5 grid grid-rows-10 px-6 py-8">
         <div className="row-span-1 flex justify-end px-2 my-0">
           <div className="pr-3">
-            <BsBell className="text-black text-2xl"/>
+            <BsBell className="text-black text-2xl hover:scale-125"/>
           </div>
           <div className="pr-3">
-            <FiCalendar className="text-black text-2xl"/>
+            <FiCalendar className="text-black text-2xl hover:scale-125"/>
           </div>
           <div className="flex justify-start w-14">
             <div className="relative flex justify-start">
-            <div className="w-7 h-7 bg-green-500 rounded-full left-0 border-2 border-white"></div>
-            <div className="w-7 h-7 bg-red-400 rounded-full absolute left-5 border-2 border-white"></div>
-            <div className="w-7 h-7 bg-yellow-400 rounded-full absolute left-10 border-2 border-white"></div>
+            <div className="w-7 h-7 bg-green-500 rounded-full left-0 border-2 border-white hover:scale-125 hover:z-10"></div>
+            <div className="w-7 h-7 bg-red-400 rounded-full absolute left-5 border-2 border-white hover:scale-125 hover:z-10"></div>
+            <div className="w-7 h-7 bg-yellow-400 rounded-full absolute left-10 border-2 border-white hover:scale-125 hover:z-10"></div>
 
             </div>
           </div>
         </div>
 
-        <div className="relative row-span-5 ">
+        <div className="relative row-span-5">
           <div className="flex justify-start absolute -left-32 -top-10 h-full big-child" >
           <div className="rounded-xl bg-white w-1/3 h-full  shadow-gray-400 shadow-md mr-12 flex justify-end items-start flex-col p-4">
           <div>
@@ -185,7 +222,8 @@ function DashboardPage() {
           </div>
           </div>
         </div>
-        <div className="row-span-3"></div>
+        <div className="row-span-3">
+        </div>
         <div className="row-span-1 flex flex-col">
           <div className="flex justify-between">
             <h3 className="text-lg font-bold">Webinars</h3>

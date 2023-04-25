@@ -6,7 +6,7 @@ const Button = ({ children, onClick, color, size, disabled, w }) => {
   const [isActive, setIsActive] = useState(false);
 
   const buttonClasses = cn(
-    'py-2 px-4 font-semibold rounded-full',
+    'py-2 px-4 font-semibold rounded-full hover:bg-blue-400',
     {
       'bg-blue-500 text-white': color === 'primary',
       'bg-gray-500 text-white': color === 'secondary',
